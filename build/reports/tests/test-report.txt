@@ -1,0 +1,9 @@
+Test summary: SUCCESS
+Total tests: 4, Failures: 0, Skipped: 0
+Successful tests: 4, Time: 11056ms
+Test summary: SUCCESS
+Total tests: 4, Failures: 0, Skipped: 0
+Successful tests: 4, Time: 9722ms
+Test summary: SUCCESS
+Total tests: 4, Failures: 0, Skipped: 0
+Successful tests: 4, Time: 12162ms

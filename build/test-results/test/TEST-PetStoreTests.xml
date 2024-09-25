@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="PetStoreTests" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-09-25T23:35:14" hostname="42503c654393" time="10.028">
+  <properties/>
+  <testcase name="testUpdatePet" classname="PetStoreTests" time="7.929"/>
+  <testcase name="testGetPets" classname="PetStoreTests" time="1.327"/>
+  <testcase name="testDeletePet" classname="PetStoreTests" time="0.339"/>
+  <testcase name="testCreatePet" classname="PetStoreTests" time="0.426"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

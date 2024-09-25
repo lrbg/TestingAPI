@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Dependencias para JUnit y Rest Assured
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'io.rest-assured:rest-assured:4.4.0'
+}
+
+test {
+    useJUnit()
+
+    // Habilitar reportes en texto plano y escribir los resultados en un archivo
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED"
+        showStandardStreams = true
+        exceptionFormat "full"
+        outputs.upToDateWhen { false }
+    }
+
+    afterSuite { desc, result ->
+        if (!desc.parent) { // Solo reportar en el nivel de suite principal
+            def reportFile = new File("${buildDir}/reports/tests/test-report.txt")
+            reportFile.parentFile.mkdirs()
+            reportFile.withWriterAppend { writer ->
+                writer.println "Test summary: ${result.resultType}"
+                writer.println "Total tests: ${result.testCount}, Failures: ${result.failedTestCount}, Skipped: ${result.skippedTestCount}"
+                writer.println "Successful tests: ${result.successfulTestCount}, Time: ${result.endTime - result.startTime}ms"
+            }
+        }
+    }
+}
