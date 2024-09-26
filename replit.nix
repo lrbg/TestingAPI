@@ -1,5 +1,6 @@
 { pkgs }: {
     deps = [
+      pkgs.nano
       pkgs.cliquer
       pkgs.gradle
         pkgs.graalvm17-ce
