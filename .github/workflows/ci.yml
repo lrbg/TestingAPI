@@ -1,0 +1,45 @@
+name: CI Pipeline for TestingAPI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Set up JDK 14
+      uses: actions/setup-java@v1
+      with:
+        java-version: '14'
+
+    - name: Grant execute permission for Gradle wrapper
+      run: chmod +x gradlew
+
+    - name: Build with Gradle
+      run: ./gradlew build
+
+    - name: Run tests
+      run: ./gradlew test
+
+  performance-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Install K6
+      run: sudo apt-get install -y k6
+
+    - name: Run K6 performance tests
+      run: k6 run performance-tests.js
+
